@@ -11,12 +11,13 @@
 
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "Entity.h"
 
-class Ship
+class Ship : public Entity
 {
 public:
     Ship(sf::Vector2f windowCenter);
-    sf::VertexArray getShape() { return shipShape; }
+    sf::VertexArray getShape() { return myShape; }
     
     void turnLeft();
     void turnRight();
@@ -30,7 +31,7 @@ private:
     void setPosition(double newX, double newY);
     
     std::vector<sf::Vector2f> relativeVertices;
-    sf::VertexArray shipShape;
+    sf::VertexArray myShape;
     sf::Vector2f center;
     sf::Vector2f windowSize;
     sf::Vector2f speed;

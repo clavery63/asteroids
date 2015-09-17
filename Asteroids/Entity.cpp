@@ -1,5 +1,5 @@
 //
-//  Ship.cpp
+//  Entity.cpp
 //  Asteroids
 //
 //  Created by Lavery, Chris on 9/12/15.
@@ -9,14 +9,13 @@
 #include <math.h>
 #include <random>
 #include <iostream>
-#include "Ship.h"
+#include "Entity.h"
 
 const double TWO_PI = 3.14159 * 2;
 const double MAX_SPEED = 8.0;
 
-Ship::Ship(sf::Vector2f windowSize)
-: Entity(windowSize)
-, myShape(sf::LinesStrip, 5)
+Entity::Entity(sf::Vector2f windowSize)
+: myShape(sf::LinesStrip, 5)
 , windowSize(windowSize)
 {
     setVertices();
@@ -28,23 +27,23 @@ Ship::Ship(sf::Vector2f windowSize)
     calculateVertices();
 }
 
-void Ship::turnLeft()
+void Entity::turnLeft()
 {
     adjustAngle(0.1);
 }
 
-void Ship::turnRight()
+void Entity::turnRight()
 {
     adjustAngle(-0.1);
 }
 
-void Ship::accelerate()
+void Entity::accelerate()
 {
     speed.x += 0.1 * sin(angle);
     speed.y += 0.1 * cos(angle);
 }
 
-void Ship::moveForward()
+void Entity::moveForward()
 {
     if (speed.x > MAX_SPEED)
         speed.x = MAX_SPEED;
@@ -58,7 +57,7 @@ void Ship::moveForward()
     calculateVertices();
 }
 
-void Ship::setPosition(double newX, double newY)
+void Entity::setPosition(double newX, double newY)
 {
     center.x = newX;
     if (center.x > windowSize.x)
@@ -72,7 +71,7 @@ void Ship::setPosition(double newX, double newY)
         center.y += windowSize.y;
 }
 
-void Ship::calculateVertices()
+void Entity::calculateVertices()
 {
     int i = 0;
     for (auto vertex : relativeVertices)
@@ -83,20 +82,20 @@ void Ship::calculateVertices()
     }
 }
 
-void Ship::adjustAngle(float delta)
+void Entity::adjustAngle(float delta)
 {
     angle += delta;
     calculateVertices();
 }
 
-void Ship::setVertices()
+void Entity::setVertices()
 {
-//    srand(time(0));
-//    for (float f = 0.0; f < 1.0; f += 0.1)
-//    {
-//        relativeVertices.push_back(sf::Vector2f(TWO_PI * f, 20 + (rand() % 80)));
-//    }
-//    relativeVertices.push_back(relativeVertices[0]);
+    //    srand(time(0));
+    //    for (float f = 0.0; f < 1.0; f += 0.1)
+    //    {
+    //        relativeVertices.push_back(sf::Vector2f(TWO_PI * f, 20 + (rand() % 80)));
+    //    }
+    //    relativeVertices.push_back(relativeVertices[0]);
     
     relativeVertices.push_back(sf::Vector2f(0.0, 25.0));
     relativeVertices.push_back(sf::Vector2f(TWO_PI * 0.4, 30.0));
