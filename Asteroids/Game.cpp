@@ -13,8 +13,10 @@ const sf::Time Game::TimePerFrame = sf::seconds(1.f/60.f);
 Game::Game()
 : mWindow(sf::VideoMode::getFullscreenModes()[0], "Asteroids", sf::Style::Fullscreen)
 , ship(sf::Vector2f(mWindow.getSize().x, mWindow.getSize().y))
+, asteroid(sf::Vector2f(mWindow.getSize().x, mWindow.getSize().y))
+, asteroid_2(sf::Vector2f(mWindow.getSize().x, mWindow.getSize().y))
 {
-    
+
 }
 
 void Game::run()
@@ -56,12 +58,16 @@ void Game::processEvents()
 void Game::update()
 {
     ship.moveForward();
+    asteroid.moveForward();
+    asteroid_2.moveForward();
 }
 
 void Game::render()
 {
     mWindow.clear(sf::Color(0, 0, 0, 255));
     mWindow.draw(ship.getShape());
+    mWindow.draw(asteroid.getShape());
+    mWindow.draw(asteroid_2.getShape());
     mWindow.display();
 }
 

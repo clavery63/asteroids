@@ -14,17 +14,13 @@
 const double TWO_PI = 3.14159 * 2;
 const double MAX_SPEED = 8.0;
 
-Entity::Entity(sf::Vector2f windowSize)
-: myShape(sf::LinesStrip, 5)
-, windowSize(windowSize)
+Entity::Entity(sf::Vector2f windowSize, float numPoints)
+: windowSize(windowSize)
+, numPoints(numPoints)
 {
-    setVertices();
-    setPosition(windowSize.x / 2, windowSize.y / 2);
-    angle = 6.0;
-    speed = sf::Vector2f(0.0, 0.0);
-    
+    myShape = sf::VertexArray(sf::LinesStrip, numPoints + 1);
     myShape[0].color = sf::Color::White;
-    calculateVertices();
+    speed = sf::Vector2f(0.0, 0.0);
 }
 
 void Entity::turnLeft()
@@ -88,21 +84,7 @@ void Entity::adjustAngle(float delta)
     calculateVertices();
 }
 
-void Entity::setVertices()
-{
-    //    srand(time(0));
-    //    for (float f = 0.0; f < 1.0; f += 0.1)
-    //    {
-    //        relativeVertices.push_back(sf::Vector2f(TWO_PI * f, 20 + (rand() % 80)));
-    //    }
-    //    relativeVertices.push_back(relativeVertices[0]);
-    
-    relativeVertices.push_back(sf::Vector2f(0.0, 25.0));
-    relativeVertices.push_back(sf::Vector2f(TWO_PI * 0.4, 30.0));
-    relativeVertices.push_back(sf::Vector2f(TWO_PI * 0.5, 15.0));
-    relativeVertices.push_back(sf::Vector2f(TWO_PI * 0.6, 30.0));
-    relativeVertices.push_back(sf::Vector2f(0.0, 25.0));
-}
+
 
 
 

@@ -15,26 +15,31 @@
 class Entity
 {
 public:
-    Entity(sf::Vector2f windowCenter);
-    virtual sf::VertexArray getShape() { return myShape; }
+    Entity(sf::Vector2f windowCenter, float numPoints);
+    sf::VertexArray getShape() { return myShape; }
     
-    virtual void turnLeft();
-    virtual void turnRight();
-    virtual void accelerate();
-    virtual void moveForward();
-    
-private:
-    virtual void setVertices();
-    virtual void calculateVertices();
-    virtual void adjustAngle(float delta);
-    virtual void setPosition(double newX, double newY);
+    void turnLeft();
+    void turnRight();
+    void accelerate();
+    void moveForward();
+
+protected:
+    void setPosition(double newX, double newY);
+    void setSpeed(sf::Vector2f s) { speed = s; }
     
     std::vector<sf::Vector2f> relativeVertices;
     sf::VertexArray myShape;
+    float numPoints;
+    double angle;
+    
+private:
+    virtual void setVertices() = 0;
+    void calculateVertices();
+    void adjustAngle(float delta);
+    
     sf::Vector2f center;
     sf::Vector2f windowSize;
     sf::Vector2f speed;
-    double angle;
 };
 
 #endif /* defined(__Asteroids__Entity__) */

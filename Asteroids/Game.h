@@ -12,6 +12,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Ship.h"
+#include "Asteroid.h"
 
 class Game : private sf::NonCopyable
 {
@@ -34,6 +35,8 @@ private:
     sf::RenderWindow mWindow;
     sf::Vector2f center;
     Ship ship;
+    Asteroid asteroid;
+    Asteroid asteroid_2;
 };
 
 #endif /* defined(__Asteroids__Game__) */

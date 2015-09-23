@@ -16,6 +16,7 @@
 		8D1F71F71BA3E568006B2749 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D1F71F51BA3E568006B2749 /* Game.cpp */; };
 		8D1F71FA1BA3E875006B2749 /* Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D1F71F81BA3E875006B2749 /* Ship.cpp */; };
 		8D6282A61BAB7BDB009CB559 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D6282A41BAB7BDB009CB559 /* Entity.cpp */; };
+		8D6282A91BAB85BB009CB559 /* Asteroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D6282A71BAB85BB009CB559 /* Asteroid.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		8D1F71F91BA3E875006B2749 /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ship.h; sourceTree = "<group>"; };
 		8D6282A41BAB7BDB009CB559 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		8D6282A51BAB7BDB009CB559 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		8D6282A71BAB85BB009CB559 /* Asteroid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Asteroid.cpp; sourceTree = "<group>"; };
+		8D6282A81BAB85BB009CB559 /* Asteroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asteroid.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				8D1F71F91BA3E875006B2749 /* Ship.h */,
 				8D6282A41BAB7BDB009CB559 /* Entity.cpp */,
 				8D6282A51BAB7BDB009CB559 /* Entity.h */,
+				8D6282A71BAB85BB009CB559 /* Asteroid.cpp */,
+				8D6282A81BAB85BB009CB559 /* Asteroid.h */,
 			);
 			path = Asteroids;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				8D1F71FA1BA3E875006B2749 /* Ship.cpp in Sources */,
 				8D1F71E61BA0E9CF006B2749 /* main.cpp in Sources */,
 				8D6282A61BAB7BDB009CB559 /* Entity.cpp in Sources */,
+				8D6282A91BAB85BB009CB559 /* Asteroid.cpp in Sources */,
 				8D1F71E31BA0E9CF006B2749 /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
