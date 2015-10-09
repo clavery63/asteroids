@@ -17,9 +17,16 @@ class Ship : public Entity
 {
 public:
     Ship(sf::Vector2f windowSize);
+    void fireMissle();
+    void moveMissleForward();
+    sf::RectangleShape getMissleShape() { return missleShape; };
     
 private:
     void setVertices();
+    
+    sf::Vector2f misslePosition;
+    sf::RectangleShape missleShape;
+    double missleDirection;
 };
 
 #endif /* defined(__Asteroids__Ship__) */

@@ -58,6 +58,7 @@ void Game::processEvents()
 void Game::update()
 {
     ship.moveForward();
+    ship.moveMissleForward();
     asteroid.moveForward();
     asteroid_2.moveForward();
 }
@@ -66,6 +67,7 @@ void Game::render()
 {
     mWindow.clear(sf::Color(0, 0, 0, 255));
     mWindow.draw(ship.getShape());
+    mWindow.draw(ship.getMissleShape());
     mWindow.draw(asteroid.getShape());
     mWindow.draw(asteroid_2.getShape());
     mWindow.display();
@@ -88,6 +90,10 @@ void Game::handleKeyboard()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
         ship.accelerate();
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        ship.fireMissle();
     }
 }
 

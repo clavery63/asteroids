@@ -31,13 +31,13 @@ protected:
     sf::VertexArray myShape;
     float numPoints;
     double angle;
+    sf::Vector2f center;
     
 private:
     virtual void setVertices() = 0;
     void calculateVertices();
     void adjustAngle(float delta);
     
-    sf::Vector2f center;
     sf::Vector2f windowSize;
     sf::Vector2f speed;
 };
